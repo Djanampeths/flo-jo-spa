@@ -72,8 +72,8 @@ web/
 - `PUT /api/links/:id` - Ενημέρωση συνδέσμου
 - `DELETE /api/achievements/:id` - Διαγραφή διάκρισης
 - `DELETE /api/links/:id` - Διαγραφή συνδέσμου
-- `POST /api/login` - Σύνδεση (ορίζει συνόδο)
-- `POST /api/logout` - Αποσύνδεση (καταστρέφει συνόδο)
+- `POST /api/login` - Σύνδεση (ορίζει session)
+- `POST /api/logout` - Αποσύνδεση (καταστρέφει session)
 
 ## Ανάρτηση στο διαδίκτυο
 
@@ -92,12 +92,12 @@ web/
 - Authentication βάσει session (express-session)
 - Προστασία server-side routes με `ensureAdmin` middleware
 - Φόρμες για προσθήκη/επεξεργασία/διαγραφή διακρίσεων και συνδέσμων
-- Αρχεία JSON ενημερώνονται αυτόματα 
+- Αρχεία JSON ενημερώνονται αυτόματα
 
 ### Responsive Σχεδίαση
 
 - Mobile-first προσέγγιση με media queries στα 900px, 520px, 360px breakpoints
-- Banner κλιμακώνεται δυναμικά (ελάχιστο 150px έως 420px ύψος)
+- Banner που κλιμακώνεται δυναμικά (ελάχιστο 150px έως 420px ύψος)
 - Grid layout εναλλάσσεται από sidebar+main σε stacked mode σε mobile
 - Εφαρμογή lightbox για την προβολή εικόνων
 
