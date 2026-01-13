@@ -5,8 +5,8 @@
 ## Χαρακτηριστικά
 
 **Εφαρμογή Μίας Σελίδας (SPA)** - Δυναμική αλλαγή περιεχομένου χωρίς επαναφόρτωση σελίδας  
-**Responsive Σχεδίαση** - Βελτιστοποιημένη για desktop, tablet και mobile  
-**Αυθεντικοποίηση** - Σύνδεση διαχειριστή βάσει συνόδου με προστατευμένα endpoints  
+**Responsive Σχεδίαση** - Βελτιστοποιημένη για desktop, tablet και mobile, με banner, lightbox για θέαση φωτογραφιών  
+**Αυθεντικοποίηση** - Σύνδεση διαχειριστή βάσει session με προστατευμένα endpoints  
 **CRUD API** - RESTful endpoints για διαχείριση διακρίσεων και συνδέσμων  
 **Αποθήκευση σε JSON** - Μόνιμα δεδομένα σε αρχεία JSON
 
@@ -14,7 +14,7 @@
 
 - **Frontend:** HTML5, CSS3, JavaScript (ES6+)
 - **Backend:** Node.js, Express.js
-- **Συνόδοι:** express-session
+- **Session:** express-session
 - **Δεδομένα:** Αρχεία JSON
 - **Responsive:** CSS Grid, Flexbox, Media Queries
 
@@ -29,7 +29,7 @@ web/
 │   ├── js/
 │   │   ├── app.js          # SPA δρομολόγηση και διαχείριση περιεχομένου
 │   │   ├── api.js          # Κλήσεις Fetch API για διακρίσεις/συνδέσμους
-│   │   └── auth.js         # Σύνδεση/αποσύνδεση και διαχείριση συνόδου
+│   │   └── auth.js         # Σύνδεση/αποσύνδεση και διαχείριση session
 │   └── data/
 │       ├── achievements.json
 │       ├── links.json
