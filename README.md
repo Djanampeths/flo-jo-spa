@@ -1,217 +1,109 @@
-# Florence Griffith Joyner - Single Page Application
+# Florence Griffith Joyner - Εφαρμογή Μίας Σελίδας
 
-A responsive single-page application (SPA) built with Node.js, Express, and vanilla JavaScript, featuring Florence Griffith Joyner's biography, achievements, and media.
+Μια δυναμικά responsive διαδικτυακή εφαρμογή (SPA) για την Florence Griffith Joyner και τα κατορθώματά της στον κόσμο του στίβου, που χτίστηκε με Node.js, Express και Javascript.
 
-## Features
+## Χαρακτηριστικά
 
-✅ **Single Page Application (SPA)** - Dynamic content changes without page reloads  
-✅ **Responsive Design** - Desktop, tablet, and mobile optimized  
-✅ **Authentication** - Session-based admin login with protected endpoints  
-✅ **CRUD API** - RESTful endpoints for achievements and links management  
-✅ **JSON Data Storage** - Persistent data in JSON files  
-✅ **Athletic Typography** - Oswald & Roboto fonts for premium feel  
-✅ **Hero Banner** - Full-screen responsive image overlay with text  
+**Εφαρμογή Μίας Σελίδας (SPA)** - Δυναμική αλλαγή περιεχομένου χωρίς επαναφόρτωση σελίδας  
+**Responsive Σχεδίαση** - Βελτιστοποιημένη για desktop, tablet και mobile  
+**Αυθεντικοποίηση** - Σύνδεση διαχειριστή βάσει συνόδου με προστατευμένα endpoints  
+**CRUD API** - RESTful endpoints για διαχείριση διακρίσεων και συνδέσμων  
+**Αποθήκευση σε JSON** - Μόνιμα δεδομένα σε αρχεία JSON
 
-## Tech Stack
+## Τεχνολογική Λύση
 
 - **Frontend:** HTML5, CSS3, JavaScript (ES6+)
 - **Backend:** Node.js, Express.js
-- **Sessions:** express-session
-- **Data:** JSON files
+- **Συνόδοι:** express-session
+- **Δεδομένα:** Αρχεία JSON
 - **Responsive:** CSS Grid, Flexbox, Media Queries
 
-## Project Structure
+## Δομή Φακέλων
 
 ```
 web/
 ├── app/
-│   ├── index.html          # Main SPA markup
+│   ├── index.html          # Κύριο markup SPA
 │   ├── css/
-│   │   └── style.css       # All styles (grid, responsive, typography)
+│   │   └── style.css       # Όλα τα στυλ (grid, responsive, τυπογραφία)
 │   ├── js/
-│   │   ├── app.js          # SPA routing and content management
-│   │   ├── api.js          # Fetch API calls for achievements/links
-│   │   └── auth.js         # Login/logout and session handling
+│   │   ├── app.js          # SPA δρομολόγηση και διαχείριση περιεχομένου
+│   │   ├── api.js          # Κλήσεις Fetch API για διακρίσεις/συνδέσμους
+│   │   └── auth.js         # Σύνδεση/αποσύνδεση και διαχείριση συνόδου
 │   └── data/
 │       ├── achievements.json
 │       ├── links.json
-│       └── users.json      # Admin credentials
+│       └── users.json      # Διαπιστευτήρια διαχειριστή
 ├── server/
-│   └── server.js           # Express server with auth & CRUD APIs
+│   └── server.js           # Express server με αυθεντικοποίηση & CRUD APIs
 ├── public/
-│   └── images/             # Hero banner and gallery images
+│   └── images/             # Εικόνες hero banner και σχετικές φωτογραφίες
 ├── package.json
 ├── .gitignore
 └── README.md
 ```
 
-## Setup & Installation
+## Εγκατάσταση & Ρύθμιση
 
-### Prerequisites
-- Node.js 14+ installed
-- npm or yarn
+### Προαπαιτούμενα
 
-### Local Development
+- Node.js 14+ εγκατεστημένο
+- npm ή yarn
 
-1. **Clone the repository:**
-```bash
-git clone https://github.com/Djanampeths/flo-jo-spa.git
-cd florence-griffith-joyner
-```
+## Σύνδεση Διαχειριστή
 
-2. **Install dependencies:**
-```bash
-npm install
-```
+- **Όνομα χρήστη:** `admin`
+- **Κωδικός πρόσβασης:** `admin123`
 
-3. **Start the server:**
-```bash
-npm start
-# or
-node server/server.js
-```
-
-4. **Open in browser:**
-```
-http://localhost:3000
-```
-
-## Admin Login
-
-- **Username:** `admin`
-- **Password:** `admin123`
-
-After login, manage achievements and links from the admin panel.
+Μετά τη σύνδεση, διαχειριστείτε διακρίσεις και συνδέσμους από τον πίνακα διαχείρισης.
 
 ## API Endpoints
 
-### Public Endpoints
-- `GET /api/achievements?category=olympics` - Fetch achievements by category
-- `GET /api/links?category=videos` - Fetch links by category
+### Δημόσια Endpoints
 
-### Protected Endpoints (admin only)
-- `POST /api/achievements` - Create new achievement
-- `POST /api/links` - Create new link
-- `PUT /api/achievements/:id` - Update achievement
-- `PUT /api/links/:id` - Update link
-- `DELETE /api/achievements/:id` - Delete achievement
-- `DELETE /api/links/:id` - Delete link
-- `POST /api/login` - Login (sets session)
-- `POST /api/logout` - Logout (destroys session)
+- `GET /api/achievements?category=olympics` - Ανάκτηση διακρίσεων ανα κατηγορία
+- `GET /api/links?category=videos` - Ανάκτηση συνδέσμων ανα κατηγορία
 
-## Deployment
+### Προστατευμένα Endpoints (μόνο διαχειριστής)
 
-### Option 1: Deploy to Cyclic.sh (Recommended for Node.js)
+- `POST /api/achievements` - Δημιουργία νέας διάκρισης
+- `POST /api/links` - Δημιουργία νέου συνδέσμου
+- `PUT /api/achievements/:id` - Ενημέρωση διάκρισης
+- `PUT /api/links/:id` - Ενημέρωση συνδέσμου
+- `DELETE /api/achievements/:id` - Διαγραφή διάκρισης
+- `DELETE /api/links/:id` - Διαγραφή συνδέσμου
+- `POST /api/login` - Σύνδεση (ορίζει συνόδο)
+- `POST /api/logout` - Αποσύνδεση (καταστρέφει συνόδο)
 
-1. **Push to GitHub** (see "Push to GitHub" below)
-2. Go to [cyclic.sh](https://cyclic.sh)
-3. Click "Link your Repo"
-4. Authorize GitHub and select your repository
-5. Cyclic auto-detects Node.js and deploys
-6. Your app is live! 🎉
+## Ανάρτηση στο διαδίκτυο
 
-### Option 2: Deploy to Vercel
+### Με codesandbox
 
-1. **Push to GitHub**
-2. Go to [vercel.com](https://vercel.com)
-3. Click "New Project"
-4. Select your GitHub repo
-5. Click "Deploy"
-6. Live in seconds ✨
+## Χαρακτηριστικά & Λεπτομέρειες
 
-### Option 3: Deploy to Railway.app
+### Αρχιτεκτονική SPA
 
-1. **Push to GitHub**
-2. Go to [railway.app](https://railway.app)
-3. Click "New Project" → "Deploy from GitHub"
-4. Select your repo
-5. Railway automatically detects and runs `npm start`
+- Δυναμική εναλλαγή σελίδας μέσω JavaScript (χωρίς server redirects)
+- Ορατότητα πλευρικού μενού ανάλογα με την επιλογή κύριου μενού
+- Hero banner με responsive overlay text
 
-## Push to GitHub
+### Διαχείριση Διαχειριστή
 
-### 1. Create GitHub Repository
+- Αυθεντικοποίηση βάσει συνόδου (express-session)
+- Προστασία server-side routes με `ensureAdmin` middleware
+- Φόρμες για προσθήκη/επεξεργασία/διαγραφή διακρίσεων και συνδέσμων
+- Αρχεία JSON ενημερώνονται αυτόματα σε mutations
 
-Go to [github.com/new](https://github.com/new) and create a public repository named `florence-griffith-joyner`.
+### Responsive Σχεδίαση
 
-### 2. Initialize & Push Locally
+- Mobile-first προσέγγιση με media queries στα 900px, 520px, 360px breakpoints
+- Hero banner κλιμακώνεται responsively (ελάχιστο 150px έως 420px ύψος)
+- Grid layout εναλλάσσεται από sidebar+main σε stacked mode σε mobile
 
-```bash
-# Navigate to project folder
-cd c:\Users\billa\OneDrive\Desktop\web
+## Άδεια
 
-# Initialize git (if not already done)
-git init
+Open source – μπορείτε ελεύθερα να το χρησιμοποιήσετε και να το τροποποιήσετε.
 
-# Add all files
-git add .
+## Συγγραφέας
 
-# Commit
-git commit -m "Initial commit: SPA with admin auth and CRUD APIs"
-
-# Add remote (replace YOUR_USERNAME)
-git remote add origin https://github.com/YOUR_USERNAME/florence-griffith-joyner.git
-
-# Push to main branch
-git branch -M main
-git push -u origin main
-```
-
-### 3. Verify on GitHub
-
-Visit `https://github.com/YOUR_USERNAME/florence-griffith-joyner` to confirm all files are uploaded.
-
-## Features in Detail
-
-### SPA Architecture
-- Dynamic page switching via JavaScript (no server redirects)
-- Side menu visibility toggled per top-menu selection
-- Hero banner with responsive overlay text
-
-### Admin Management
-- Session-based authentication (express-session)
-- Server-side route protection with `ensureAdmin` middleware
-- Forms for adding/editing/deleting achievements and links
-- JSON files auto-update on mutations
-
-### Responsive Design
-- Mobile-first approach with media queries at 900px, 520px, 360px breakpoints
-- Hero banner scales responsively (min 150px to 420px height)
-- Grid layout switches from sidebar+main to stacked on mobile
-
-## Troubleshooting
-
-**Port 3000 already in use?**
-```bash
-# Change port in server.js or run on different port
-PORT=3001 npm start
-```
-
-**Session not persisting?**
-- Ensure cookies are enabled in browser
-- Check that credentials: 'same-origin' is in fetch calls
-
-**Images not loading after deploy?**
-- Verify `public/images/` files are committed to GitHub
-- Check image paths are absolute (e.g., `/images/photo.jpg`)
-
-## Future Enhancements
-
-- [ ] Database (MongoDB/PostgreSQL) instead of JSON files
-- [ ] Admin password hashing (bcrypt)
-- [ ] User registration
-- [ ] Photo upload feature
-- [ ] Search/filter functionality
-- [ ] Dark mode toggle
-- [ ] Multi-language support
-
-## License
-
-Open source – feel free to use and modify.
-
-## Author
-
-Created for a web development course project showcasing SPA, REST APIs, and responsive design.
-
----
-
-**Ready to deploy?** Follow the "Deployment" section above and share your live link! 🚀
+Ανδρέας Παναγόπουλος, Προπτυχιακός Φοιτητής Πληροφορικής Και Τηλεπικοινωνιών στο Πανεπιστήμιο Θεσσαλίας

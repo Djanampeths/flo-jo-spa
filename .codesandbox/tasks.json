@@ -11,12 +11,11 @@
   "tasks": {
     "test": {
       "name": "test",
-      "command": "npm run test",
-      "runAtStart": false
+      "command": "npm run test"
     },
     "start": {
       "name": "start",
-      "command": "node .\\server\\server.js",
+      "command": "node /project/workspace/server/server.js",
       "runAtStart": true
     }
   }
