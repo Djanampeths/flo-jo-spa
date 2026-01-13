@@ -77,7 +77,7 @@ web/
 
 ## Ανάρτηση στο διαδίκτυο
 
-### Με codesandbox: https://codesandbox.io/p/github/Djanampeths/flo-jo-spa/main?workspaceId=ws_RsNR5T54WVPWyhtmhkhxtr
+### Με codesandbox: https://codesandbox.io/p/github/Djanampeths/flo-jo-spa/main
 
 ## Χαρακτηριστικά & Λεπτομέρειες
 
