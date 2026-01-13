@@ -5,12 +5,12 @@
 ## Χαρακτηριστικά
 
 **Εφαρμογή Μίας Σελίδας (SPA)** - Δυναμική αλλαγή περιεχομένου χωρίς επαναφόρτωση σελίδας  
-**Responsive Σχεδίαση** - Βελτιστοποιημένη για desktop, tablet και mobile, με banner, lightbox για θέαση φωτογραφιών  
-**Αυθεντικοποίηση** - Σύνδεση διαχειριστή βάσει session με προστατευμένα endpoints  
+**Responsive Σχεδίαση** - Βελτιστοποιημένη για desktop, tablet και mobile
+**Authentication** - Σύνδεση διαχειριστή βάσει session με προστατευμένα endpoints  
 **CRUD API** - RESTful endpoints για διαχείριση διακρίσεων και συνδέσμων  
 **Αποθήκευση σε JSON** - Μόνιμα δεδομένα σε αρχεία JSON
 
-## Τεχνολογική Λύση
+## Tech Stack
 
 - **Frontend:** HTML5, CSS3, JavaScript (ES6+)
 - **Backend:** Node.js, Express.js
@@ -23,7 +23,7 @@
 ```
 web/
 ├── app/
-│   ├── index.html          # Κύριο markup SPA
+│   ├── index.html          # Θεμέλιο HTML για την SPA
 │   ├── css/
 │   │   └── style.css       # Όλα τα στυλ (grid, responsive, τυπογραφία)
 │   ├── js/
@@ -37,7 +37,7 @@ web/
 ├── server/
 │   └── server.js           # Express server με αυθεντικοποίηση & CRUD APIs
 ├── public/
-│   └── images/             # Εικόνες hero banner και σχετικές φωτογραφίες
+│   └── images/             # Εικόνα banner και σχετικές φωτογραφίες
 ├── package.json
 ├── .gitignore
 └── README.md
@@ -55,7 +55,7 @@ web/
 - **Όνομα χρήστη:** `admin`
 - **Κωδικός πρόσβασης:** `admin123`
 
-Μετά τη σύνδεση, διαχειριστείτε διακρίσεις και συνδέσμους από τον πίνακα διαχείρισης.
+Μετά τη σύνδεση, μπορούν να εισαχθούν και να διαγραφούν διακρίσεις και σύνδεσμοι από τον πίνακα διαχείρισης.
 
 ## API Endpoints
 
@@ -85,20 +85,21 @@ web/
 
 - Δυναμική εναλλαγή σελίδας μέσω JavaScript (χωρίς server redirects)
 - Ορατότητα πλευρικού μενού ανάλογα με την επιλογή κύριου μενού
-- Hero banner με responsive overlay text
+- Φωτογραφία ως banner με responsive overlay text
 
 ### Διαχείριση Διαχειριστή
 
-- Αυθεντικοποίηση βάσει συνόδου (express-session)
+- Authentication βάσει session (express-session)
 - Προστασία server-side routes με `ensureAdmin` middleware
 - Φόρμες για προσθήκη/επεξεργασία/διαγραφή διακρίσεων και συνδέσμων
-- Αρχεία JSON ενημερώνονται αυτόματα σε mutations
+- Αρχεία JSON ενημερώνονται αυτόματα 
 
 ### Responsive Σχεδίαση
 
 - Mobile-first προσέγγιση με media queries στα 900px, 520px, 360px breakpoints
-- Hero banner κλιμακώνεται responsively (ελάχιστο 150px έως 420px ύψος)
+- Banner κλιμακώνεται δυναμικά (ελάχιστο 150px έως 420px ύψος)
 - Grid layout εναλλάσσεται από sidebar+main σε stacked mode σε mobile
+- Εφαρμογή lightbox για την προβολή εικόνων
 
 ## Άδεια
 

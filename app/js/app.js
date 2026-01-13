@@ -4,8 +4,10 @@ const navItems = document.querySelectorAll("nav ul li");
 
 let isInitialLoad = true;
 
+// Εμφάνιση της αρχικής σελίδας (βιογραφία)
 showPage("bio");
 
+// Χειρισμός κλικ στο κύριο πλοηγικό μενού
 navItems.forEach(item => {
     item.addEventListener("click", () => {
         const page = item.dataset.page;
@@ -13,6 +15,7 @@ navItems.forEach(item => {
     });
 });
 
+// Εμφάνιση της επιλεγμένης κύριας σελίδας
 function showPage(page) {
     hideAllSideMenus();
 
@@ -27,12 +30,14 @@ function showPage(page) {
     isInitialLoad = false;
 }
 
+// Απόκρυψη όλων των πλευρικών μενού
 function hideAllSideMenus() {
     sideMenus.forEach(menu => {
         menu.classList.add("hidden");
     });
 }
 
+// Φόρτωση προεπιλεγμένου περιεχομένου για κάθε κύρια ενότητα
 function loadDefaultContent(page, includeLead = false) {
     switch (page) {
         case "bio":
@@ -81,7 +86,7 @@ function handleSideMenu(menuid, section) {
     }
 }
 
-
+// Φόρτωση βιογραφίας της Florence Griffith Joyner
 function loadBiography(section, includeLead = false) {
     const lead = includeLead ? `
         <p class="lead">
@@ -169,6 +174,7 @@ function loadBiography(section, includeLead = false) {
     mainContent.innerHTML = content;
 }
 
+// Φωτογραφίες της Florence Griffith Joyner ανά κατηγορία
 const galleryImages = {
     seoul: [
         { src: "/images/florence_griffith_joyner_1.webp", caption: "Η Florence στην κορυφή της δύναμής της κατά τους Ολυμπιακούς Αγώνες της Σεούλ 1988" },
@@ -187,6 +193,7 @@ const galleryImages = {
     ]
 };
 
+// Φόρτωση φωτογραφιών με lightbox
 function loadPhotoGallery(section) {
     const images = galleryImages[section] || galleryImages.seoul;
     let html = `<h2>Φωτογραφίες - ${section}</h2><div class="photos-container">`;
@@ -201,7 +208,7 @@ function loadPhotoGallery(section) {
     html += `</div>`;
     mainContent.innerHTML = html;
 
-    // attach click handlers to open lightbox
+    // Προσθήκη ακροατών κλικ για άνοιγμα του lightbox
     const imgs = mainContent.querySelectorAll('.photo img');
     imgs.forEach(img => {
         img.addEventListener('click', (e) => {
@@ -212,6 +219,7 @@ function loadPhotoGallery(section) {
     });
 }
 
+// Φόρτωση διακρίσεων ανά κατηγορία
 function loadAchievements(section) {
     mainContent.innerHTML = `
         <h2>Διακρίσεις - ${section}</h2>
@@ -219,7 +227,7 @@ function loadAchievements(section) {
     `;
 }
 
-/* Image viewer (lightbox) implementation */
+// Λειτουγικότητα lightbox για την προβολή εικόνων
 let _lightbox = null;
 let _lbSection = null;
 let _lbIndex = 0;
@@ -290,9 +298,10 @@ function renderLightbox() {
     captionEl.textContent = item.caption || '';
 }
 
-// initialize lightbox once on load
+// Αρχικοποίηση lightbox κατά τη φόρτωση της σελίδας
 document.addEventListener('DOMContentLoaded', initLightbox);
 
+// Φόρτωση συνδέσμων ανά κατηγορία
 function loadLinks(section) {
     mainContent.innerHTML = `
         <h2>Σύνδεσμοι - ${section}</h2>
@@ -300,6 +309,7 @@ function loadLinks(section) {
     `;
 }
 
+// Φόρτωση σελίδας διαχείρισης
 function loadMgmt(section) {
     if (typeof handleAdminAction === "function") {
         handleAdminAction(section);

@@ -1,14 +1,17 @@
+// Εισαγωγή απαραίτητων modules
 const express = require('express');
 const session = require('express-session');
 const fs = require('fs');
 const path = require('path');
 
+// Δημιουργία Express εφαρμογής
 const app = express();
 const PORT = 3000;
 
+// 
 app.use(express.json());
 app.use(session({
-  secret: 'replace_this_with_a_secure_random_secret',
+  secret: '6d2671f24763913af70c4c8275cdadd9eddab3c5b7fd225716af996f63d11888',
   resave: false,
   saveUninitialized: false,
   cookie: { secure: false }
@@ -16,6 +19,7 @@ app.use(session({
 app.use(express.static(path.join(__dirname, '../app')));
 app.use(express.static(path.join(__dirname, '../public')));
 
+// Συνάρτησεις για ανάγνωση και εγγραφή JSON αρχείων
 function readJSON(fileName) {
     const filePath = path.join(__dirname, '../app/data', fileName);
     const data = fs.readFileSync(filePath, "utf-8");
@@ -27,7 +31,9 @@ function writeJSON(fileName, data) {
   fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
 }
 
+// API Endpoints
 
+// REST operations για τα επιτεύγματα και τους συνδέσμους
 app.get("/api/achievements", (req, res) => {
     const category = req.query.category;
     let achievements = readJSON("achievements.json");
@@ -67,6 +73,7 @@ app.post("/api/links", ensureAdmin, (req, res) => {
   res.json({ success: true });
 });
 
+// Παραλλαγή στο Basic Authentication που μάθαμε, με το διάβασμα των credentials από ένα JSON αρχείο, και με json responses
 app.post("/api/login", (req, res) => {
     const { username, password } = req.body;
     const users = readJSON("users.json");
@@ -86,6 +93,7 @@ app.post('/api/logout', (req, res) => {
   });
 });
 
+// Middleware για έλεγχο admin ρόλου
 function ensureAdmin(req, res, next) {
   if (req.session && req.session.user && req.session.user.role === 'admin') return next();
   return res.status(403).json({ success: false, message: 'Forbidden' });
@@ -153,6 +161,7 @@ app.delete("/api/achievements/:id", ensureAdmin, (req, res) => {
   res.json({ success: true });
 });
 
+// Εκκίνηση του server στην θύρα 3000
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 });

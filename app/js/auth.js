@@ -1,5 +1,6 @@
 let isLoggedIn = false;
 
+// Διαχείριση φόρμας σύνδεσης
 document.addEventListener("submit", function (e) {
   if (e.target && e.target.id === "loginForm") {
     e.preventDefault();
@@ -30,6 +31,7 @@ document.addEventListener("submit", function (e) {
   }
 });
 
+// Συνάρτηση αποσύνδεσης χρήστη
 function logout() {
   fetch('/api/logout', { method: 'POST', credentials: 'same-origin' })
     .then(() => {
@@ -47,6 +49,7 @@ function logout() {
     });
 }
 
+// Ενημέρωση του μενού διαχείρισης ανάλογα με την κατάσταση σύνδεσης
 function updateAdminMenu() {
   const adminMenu = document.getElementById("mgmt-menu");
   const items = adminMenu.querySelectorAll("li");
@@ -68,6 +71,7 @@ function updateAdminMenu() {
   });
 }
 
+// Εμφάνιση μηνύματος επιτυχούς σύνδεσης
 function showLoginSuccess() {
   document.getElementById("content").innerHTML = `
     <h2>Επιτυχής σύνδεση</h2>
@@ -75,6 +79,7 @@ function showLoginSuccess() {
   `;
 }
 
+// Χειρισμός ενεργειών διαχείρισης
 function handleAdminAction(section) {
   if (section === "logout") {
     logout();

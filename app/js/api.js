@@ -1,5 +1,6 @@
 const API_BASE = "/api";
 
+// Φόρτωση διακρίσεων ανά κατηγορία
 function loadAchievements(category) {
     fetch(`${API_BASE}/achievements?category=${category}`)
         .then(response => response.json())
@@ -7,6 +8,7 @@ function loadAchievements(category) {
         .catch(error => console.error('Σφάλμα κατά τη φόρτωση των διακρίσεων:', error));
 }
 
+// Απόδοση πίνακα διακρίσεων
 function renderAchievementsTable(achievements, category) {
     let html = `
         <h2>Διακρίσεις - ${getCategoryTitle(category)}</h2>
@@ -32,6 +34,7 @@ function renderAchievementsTable(achievements, category) {
     mainContent.innerHTML = html;
 }
 
+// Φόρτωση συνδέσμων ανά κατηγορία
 function loadLinks(category) {
     fetch(`${API_BASE}/links?category=${category}`)
         .then(response => response.json())
@@ -39,6 +42,7 @@ function loadLinks(category) {
         .catch(error => console.error('Σφάλμα κατά τη φόρτωση των συνδέσμων:', error));
 }
 
+// Απόδοση πίνακα συνδέσμων
 function renderLinksTable(links, category) {
     let html = `
         <h2>Σύνδεσμοι - ${getCategoryTitle(category)}</h2>
@@ -62,6 +66,7 @@ function renderLinksTable(links, category) {
     mainContent.innerHTML = html;
 }
 
+// Λήψη τίτλου κατηγορίας
 function getCategoryTitle(category) {
     const titles = {
         olympics: "Ολυμπιακοί Αγώνες",
@@ -126,6 +131,7 @@ document.addEventListener("submit", function (e) {
   }
 });
 
+// Φόρτωση διακρίσεων και συνδέσμων για διαχείριση 
 function loadAdminAchievements() {
   fetch("/api/achievements")
     .then(res => res.json())
