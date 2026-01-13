@@ -55,7 +55,7 @@ web/
 
 1. **Clone the repository:**
 ```bash
-git clone https://github.com/YOUR_USERNAME/florence-griffith-joyner.git
+git clone https://github.com/Djanampeths/flo-jo-spa.git
 cd florence-griffith-joyner
 ```
 
